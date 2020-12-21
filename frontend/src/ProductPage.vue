@@ -1,6 +1,6 @@
 <template>
   <div id="product-page">
-    <h2>Products</h2>
+    <h2>{{pageTitle}}</h2>
     <ul>
       <li v-for="product in products" :key="product.id">
         <div class="product-listing">
@@ -17,11 +17,14 @@
 export default {
   name: 'ProductPage',
   props: {
-    data: Object,
+    pageData: Object,
   },
   computed: {
     products() {
-      return this.data.products;
+      return this.pageData.products;
+    },
+    pageTitle() {
+      return this.pageData.pageTitle;
     },
   },
 };
